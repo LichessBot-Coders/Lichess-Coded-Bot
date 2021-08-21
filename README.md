@@ -26,6 +26,11 @@ Engine:
 Opening Books: 
 - [Goi5.1.bin](https://gitlab.com/OIVAS7572/Goi5.1.bin/-/raw/master/Goi5.1.bin.7z)
 - [Drawkiller_EloZoom_big.bin](/Drawkiller_EloZoom_big.bin)
+- [Perfect2021.bin](https://github.com/SathyaKarthik1212/chess-bot/blob/main/Perfect2021.bin)
+- [bestbook.bin](https://github.com/SathyaKarthik1212/chess-bot/blob/main/bestbook.bin)
+- [elo3300.bin](https://github.com/SathyaKarthik1212/chess-bot/blob/main/elo3300.bin)
+- [komodo.bin](https://github.com/SathyaKarthik1212/chess-bot/blob/main/komodo.bin)
+- [network.bin](https://github.com/SathyaKarthik1212/chess-bot/blob/main/network.bin)
 
 **If you would like to run bot locally on PC, read the [lichess-bot manual](https://github.com/ShailChoksi/lichess-bot#how-to-install).**
 
