@@ -12,6 +12,11 @@ engine:                      # Engine settings.
       standard:              # List of book file paths for variant standard.
         - Goi5.1.bin
         - Drawkiller_EloZoom_big.bin
+        - Perfect2021.bin
+        - bestbook.bin
+        - elo3300.bin
+        - komodo.bin
+        - network.bin
 #     atomic:                # List of book file paths for variant atomic.
 #       - engines/atomicbook1.bin
 #       - engines/atomicbook2.bin
