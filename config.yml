@@ -17,6 +17,7 @@ engine:                      # Engine settings.
         - elo3300.bin
         - komodo.bin
         - network.bin
+        - Cerebellum3Merge.bin
 #     atomic:                # List of book file paths for variant atomic.
 #       - engines/atomicbook1.bin
 #       - engines/atomicbook2.bin
