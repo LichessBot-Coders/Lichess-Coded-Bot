@@ -15,8 +15,6 @@ engine:                      # Engine settings.
         - Perfect2021.bin
         - bestbook.bin
         - elo3300.bin
-        - komodo.bin
-        - network.bin
         - Cerebellum3Merge.bin
 #     atomic:                # List of book file paths for variant atomic.
 #       - engines/atomicbook1.bin
