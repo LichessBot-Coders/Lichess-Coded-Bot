@@ -13,7 +13,7 @@
 
 ## Bot Information
 Engine:
-- [Stockfish 14 dev SSE4.1 + POPCNT ](https://abrok.eu/stockfish/builds/dabaf2220fe0c77400a5f71a91952f510e6a126b/linux64modern/stockfish_21080516_x64_modern.zip) with the default NNUE.
+- [Stockfish 14 dev SSE4.1 + POPCNT ](https://abrok.eu/stockfish/builds/ad357e147a1b8481a04761d726ce1db14115a68f/linux64modern/stockfish_21082721_x64_modern.zip) with the default NNUE.
 
 
 ## Acknowledgements
