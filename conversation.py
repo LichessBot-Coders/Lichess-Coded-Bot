@@ -30,7 +30,7 @@ class Conversation:
         elif cmd == "id":
             self.send_reply(line, "ChessGreatPlayer")
         elif cmd == "howto":
-            self.send_reply(line, "How to run your own bot: Check out '(Lichess Bot API)(https://lichess.org/api#tag/Chess-Bot)'")
+            self.send_reply(line, "How to run your own bot: Check out 'Lichess Bot API'")
         elif cmd == "eval":
             stats = self.engine.get_stats()
             self.send_reply(line, ", ".join(stats))
