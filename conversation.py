@@ -26,7 +26,7 @@ class Conversation:
             self.send_reply(line, "Waiting 60 seconds...")
         elif cmd == "name":
             name = game.me.name
-            self.send_reply(line, "{} developed by ChessGreatPlayer Using codes of C++ , Java , Python , Makefile , C , Shell and Dockerfile running {} (lichess-bot v{})".format(name, self.engine.name(), self.version))
+            self.send_reply(line, "{} developed by ChessGreatPlayer. Using codes of C++ , Java , Python , C and Dockerfile running {} (lichess-bot v{})".format(name, self.engine.name(), self.version))
         elif cmd == "id":
             self.send_reply(line, "ChessGreatPlayer")
         elif cmd == "howto":
