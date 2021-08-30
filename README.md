@@ -17,4 +17,4 @@ Engine:
 
 
 ## Acknowledgements
-Credits to [Kingnandi and chessgreatplayer ]. They helped to collaborate and make this repository it contains codes of them and it is the best lichess repository to run bot in lichess by heroku server and a modified version of shailcotakshi.
+Credits to [Kingnandi](https://lichess.org/@/Kingnandi) and [ChessGreatPlayer](https://lichess.org/@/ChessGreatPlayer). They helped to collaborate and make this repository it contains codes of them and it is the best lichess repository to run bot in lichess by heroku server and a modified version of ShailChoksi.
