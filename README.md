@@ -1,4 +1,4 @@
-**MAINTAINER [ChessGreatPlayer](https://lichess.org/@/ChessGreatPlayer)**
+**MAINTAINER [Kingnandi and chessgreatplayer](https://lichess.org/@/Kingnandi)**
 
 
 ## How to Install on Heroku
@@ -13,8 +13,8 @@
 
 ## Bot Information
 Engine:
-- [Stockfish 14 dev SSE4.1 + POPCNT ](https://abrok.eu/stockfish/builds/ad357e147a1b8481a04761d726ce1db14115a68f/linux64modern/stockfish_21082721_x64_modern.zip) with the default NNUE.
+- [Stockfish 14 dev  ](https://abrok.eu/stockfish/builds/ad357e147a1b8481a04761d726ce1db14115a68f/linux64modern/stockfish_21082721_x64_modern.zip) with the default NNUE.
 
 
 ## Acknowledgements
-Credits to [ShailChoksi's lichess-bot](https://github.com/ShailChoksi/lichess-bot).
+Credits to [Kingnandi and chessgreatplayer ]. They helped to collaborate and make this repository it contains codes of them and it is the best lichess repository to run bot in lichess by heroku server and a modified version of shailcotakshi.
