@@ -1,4 +1,4 @@
-**MAINTAINER [Kingnandi and chessgreatplayer](https://lichess.org/@/Kingnandi)**
+**MAINTAINER [Kingnandi](https://lichess.org/@/Kingnandi) and [ChessGreatPlayer](https://lichess.org/@/ChessGreatPlayer)**
 
 
 ## How to Install on Heroku
