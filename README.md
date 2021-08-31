@@ -3,7 +3,6 @@
 
 [![Python](https://github.com/LichessBot-Coders/Lichess-Coded-Bots/actions/workflows/Python.yml/badge.svg)](https://github.com/LichessBot-Coders/Lichess-Coded-Bots/actions/workflows/Python.yml)
 [![Docker](https://github.com/LichessBot-Coders/Lichess-Coded-Bots/actions/workflows/Docker.yml/badge.svg)](https://github.com/LichessBot-Coders/Lichess-Coded-Bots/actions/workflows/Docker.yml)
-
 # lichess-bot
 - A bridge between [Lichess API](https://lichess.org/api#tag/Bot) and bots.
 - This bot is made with Python and it is running using Docker container and is concentrated on heroku.
