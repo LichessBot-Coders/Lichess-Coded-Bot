@@ -1,7 +1,4 @@
-**MAINTAINER [Kingnandi](https://lichess.org/@/Kingnandi) and [ChessGreatPlayer](https://lichess.org/@/ChessGreatPlayer)**
-
-
-**MAINTAINER [OIVAS7572](https://github.com/OIVAS7572)**
+**MAINTAINER [Kingnandi](https://lichess.org/@/Kingnandi) and [ChessGreatPlayer](https://lichess.org/@/ChessGreatPlayer)
 
 [![Python](https://github.com/OIVAS7572/lichess-bot/actions/workflows/Python.yml/badge.svg)](https://github.com/OIVAS7572/lichess-bot/actions/workflows/Python.yml)
 [![Docker](https://github.com/OIVAS7572/lichess-bot/actions/workflows/Docker.yml/badge.svg)](https://github.com/OIVAS7572/lichess-bot/actions/workflows/Docker.yml)
@@ -29,7 +26,7 @@ Engine:
 
 Opening Books: 
 - [Goi5.1.bin](https://gitlab.com/OIVAS7572/Goi5.1.bin/-/raw/master/Goi5.1.bin.7z)
-- [Drawkiller_EloZoom_big.bin](/Drawkiller_EloZoom_big.bin)
+- [Perfect2021.bin](/Perfect2021.bin)
 
 **If you would like to run bot locally on PC, read the [lichess-bot manual](https://github.com/ShailChoksi/lichess-bot#how-to-install).**
 
