@@ -26,11 +26,11 @@ class Conversation:
             self.send_reply(line, "Waiting 60 seconds...")
         elif cmd == "name":
             name = game.me.name
-            self.send_reply(line, "{} using codes of C++ , Java , Python , C and Dockerfile running {} (lichess-bot v{})".format(name, self.engine.name(), self.version))
+            self.send_reply(line, "{} using c++ and java codes running {} (lichess-bot v{}) on heroku server.".format(name, self.engine.name(), self.version))
         elif cmd == "id":
             self.send_reply(line, "ChessGreatPlayer")
         elif cmd == "howto":
-            self.send_reply(line, "How to run your own bot: Check out 'Lichess Bot API'")
+            self.send_reply(line, "How to run your own bot: Check out 'Lichess Bot API' or go to https://github.com/LichessBot-Coders/Lichess-Coded-Bot")
         elif cmd == "eval":
             stats = self.engine.get_stats()
             self.send_reply(line, ", ".join(stats))
@@ -41,7 +41,7 @@ class Conversation:
                 challengers = ", ".join(["@" + challenger.challenger_name for challenger in reversed(self.challengers)])
                 self.send_reply(line, "Challenge queue: {}".format(challengers))
             else:
-                self.send_reply(line, "No challenges queued.")
+                self.send_reply(line, "No challenges queued. Wait for my current game to finish then kindly challenge.")
 
     def send_reply(self, line, reply):
         self.xhr.chat(self.game.id, line.room, reply)
