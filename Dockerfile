@@ -1,4 +1,4 @@
-FROM debian:bullseye-slim
+FROM debian:stable-slim
 MAINTAINER OIVAS7572
 RUN echo OIVAS7572
 CMD echo OIVAS7572
