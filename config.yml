@@ -12,6 +12,12 @@ engine:                      # Engine settings.
       standard:              # List of book file paths for variant standard.
         - Goi5.1.bin
         - Drawkiller_EloZoom_big.bin
+        - Goi5.1.bin
+        - Perfect2021.bin
+        - tcec.bin
+        - komodo.bin
+        - elo3300.bin
+        - Cerebellum3Merge.bin.7z
 #      atomic: # list of book file paths for variant atomic
 #      etc.
 #      use the same pattern for giveaway, crazyhouse, horde, kingofthehill, racingkings, 3check as well
@@ -26,7 +32,7 @@ option name Contempt type spin : 24
 option name Analysis Contempt type combo : Both var Off var White var Black var Both
 option name Threads type spin : 256
 option name Hash type spin : 32768
-option name Ponder type check : false
+option name Ponder type check : true
 option name MultiPV type spin : 1
 option name Skill Level type spin : 20
 option name Move Overhead type spin : 1000
