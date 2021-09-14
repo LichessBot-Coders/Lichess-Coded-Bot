@@ -17,7 +17,7 @@ engine:                      # Engine settings.
         - tcec.bin
         - komodo.bin
         - elo3300.bin
-        - Cerebellum3Merge.bin.7z
+        - Cerebellum3Merge.bin
 #      atomic: # list of book file paths for variant atomic
 #      etc.
 #      use the same pattern for giveaway, crazyhouse, horde, kingofthehill, racingkings, 3check as well
@@ -30,7 +30,7 @@ engine:                      # Engine settings.
  
 option name Contempt type spin : 24
 option name Analysis Contempt type combo : Both var Off var White var Black var Both
-option name Threads type spin : 16
+option name Threads type spin : 20
 option name Hash type spin : 32768
 option name Ponder type check : true
 option name MultiPV type spin : 1
