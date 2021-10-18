@@ -86,8 +86,8 @@ challenge:                   # incoming challenges
     - bullet
     - blitz
     - rapid
-#   - classical
-#   - correspondence
+    - classical
+    - correspondence
   modes:                     # game modes to accept
     - casual                 # unrated games
     - rated                  # rated games - must comment if the engine doesn't try to win
