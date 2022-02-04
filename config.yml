@@ -3,7 +3,7 @@ url: "https://lichess.org/"  # Lichess base URL.
 
 engine:                      # Engine settings.
   dir: "./"                  # Directory containing engines, relative to this project.
-  name: "chess-engine"    # Binary name of the engine to use.
+  name: "stockfish_x64_modern"    # Binary name of the engine to use.
   protocol: "uci"            # "uci" or "xboard"
   ponder: true               # Think on opponent's time.
   polyglot:
@@ -74,14 +74,14 @@ challenge:                   # incoming challenges
   variants:                  # chess variants to accept (http://lichess.org/variant)
     - standard
 #   - fromPosition
-#   - antichess
-#   - atomic
+    - antichess
+    - atomic
     - chess960
-#   - crazyhouse
-#   - horde
-#   - kingOfTheHill
-#   - racingKings
-#   - threeCheck
+    - crazyhouse
+    - horde
+    - kingOfTheHill
+    - racingKings
+    - threeCheck
   time_controls:             # time controls to accept
     - bullet
     - blitz
