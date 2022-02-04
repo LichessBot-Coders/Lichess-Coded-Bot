@@ -20,7 +20,7 @@ class Conversation:
 
     def command(self, line, game, cmd):
         if cmd == "commands" or cmd == "help":
-            self.send_reply(line, "Supported commands: !wait, !name, !howto, !eval, !queue")
+            self.send_reply(line, "Supported commands: !wait(only works at start of the game), !name, !howto, !eval, !queue, !id, !github")
         elif cmd == "wait" and game.is_abortable():
             game.ping(60, 120)
             self.send_reply(line, "Waiting 60 seconds...")
@@ -28,9 +28,9 @@ class Conversation:
             name = game.me.name
             self.send_reply(line, "{} using c++ and java codes running {} (lichess-bot v{}) on heroku server.".format(name, self.engine.name(), self.version))
         elif cmd == "id":
-            self.send_reply(line, "ChessGreatPlayer")
+            self.send_reply(line, "@RaviharaV")
         elif cmd == "howto":
-            self.send_reply(line, "How to run your own bot: Check out 'Lichess Bot API' or go to https://github.com/LichessBot-Coders/Lichess-Coded-Bot")
+            self.send_reply(line, "How to run your own bot: Check out 'Lichess Bot API'")
         elif cmd == "eval":
             stats = self.engine.get_stats()
             self.send_reply(line, ", ".join(stats))
@@ -42,7 +42,9 @@ class Conversation:
                 self.send_reply(line, "Challenge queue: {}".format(challengers))
             else:
                 self.send_reply(line, "No challenges queued. Wait for my current game to finish then kindly challenge.")
-
+        elif cmd == "github":
+            self.send_reply(line, "https://github.com/RaviharaV-bot/Lichess-Coded-Bot")
+                
     def send_reply(self, line, reply):
         self.xhr.chat(self.game.id, line.room, reply)
 
