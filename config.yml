@@ -1,9 +1,11 @@
-token: "7ER5RKHzqzBvWaRi"    # Lichess OAuth2 Token.
+token: "lip_LxOdszffnb7u1m35raeW"    # Lichess OAuth2 Token.
 url: "https://lichess.org/"  # Lichess base URL.
 
 engine:                      # Engine settings.
   dir: "./"                  # Directory containing engines, relative to this project.
-  name: "chess-engine"    # Binary name of the engine to use.
+  name: "stockfish_x64_modern"    # Binary name of the engine to use.
+  sfname: "stockfish"
+  antiname: "fsf"
   protocol: "uci"            # "uci" or "xboard"
   ponder: true               # Think on opponent's time.
   polyglot:
@@ -18,8 +20,19 @@ engine:                      # Engine settings.
         - komodo.bin
         - elo3300.bin
         - Cerebellum3Merge.bin
-#      atomic: # list of book file paths for variant atomic
+      atomic: # list of book file paths for variant atomic
+        - atomic.bin
 #      etc.
+      antichess:
+        - antichess.bin
+      horde:
+        - horde.bin
+      racingkings:
+        - racingKings.bin
+      3check:
+        - threeCheck.bin
+      kingofthehill:
+        - kingofthehill.bin
 #      use the same pattern for giveaway, crazyhouse, horde, kingofthehill, racingkings, 3check as well
       min_weight: 100          # selects move with highest weight but not below this value
       selection: "best_move" # move slection is one of "weighted_random", "uniform_random" or "best_move" (but not below the min_weight in 2. and 3. case)
@@ -74,14 +87,14 @@ challenge:                   # incoming challenges
   variants:                  # chess variants to accept (http://lichess.org/variant)
     - standard
 #   - fromPosition
-#   - antichess
-#   - atomic
+    - antichess
+    - atomic
     - chess960
-#   - crazyhouse
-#   - horde
-#   - kingOfTheHill
-#   - racingKings
-#   - threeCheck
+    - crazyhouse
+    - horde
+    - kingOfTheHill
+    - racingKings
+    - threeCheck
   time_controls:             # time controls to accept
     - bullet
     - blitz

@@ -228,6 +228,19 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     engine = engine_factory()
     engine.get_opponent_info(game)
     conversation = Conversation(game, engine, li, __version__, challenge_queue)
+    
+    class SendLine:
+        def __init__(self, room):
+            self.room = room
+    opponent = game.black.name if game.white.name == user_profile["username"] else game.white.name
+    conversation.send_reply(SendLine('player'), f'Good Luck @{opponent}')
+    conversation.send_reply(SendLine('spectator'), f'Welcome to my games spectators!')
+    
+    variant=game.perf_name
+      
+    if variant=="antichess":
+        engine_path = os.path.join(cfg["dir"], cfg["antiname"])
+        engineeng = engine.SimpleEngine.popen_uci(engine_path)    
 
     logger.info("+++ {}".format(game))
 
@@ -319,7 +332,7 @@ def choose_move_time(engine, board, search_time, ponder):
 
 def choose_first_move(engine, board):
     # need to hardcode first movetime (10000 ms) since Lichess has 30 sec limit.
-    search_time = 10000
+    search_time = 5000
     logger.info("Searching for time {}".format(search_time))
     return engine.first_search(board, search_time)
 
@@ -365,7 +378,7 @@ def get_book_move(board, polyglot_cfg):
 def choose_move(engine, board, game, ponder, start_time, move_overhead):
     wtime = game.state["wtime"]
     btime = game.state["btime"]
-    pre_move_time = int((time.perf_counter_ns() - start_time) / 1000000)
+    pre_move_time = int((time.perf_counter_ns() - start_time) / 500000)
     if board.turn == chess.WHITE:
         wtime = max(0, wtime - move_overhead - pre_move_time)
     else:
