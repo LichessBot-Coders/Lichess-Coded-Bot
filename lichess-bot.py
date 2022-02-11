@@ -235,13 +235,8 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     opponent = game.black.name if game.white.name == user_profile["username"] else game.white.name
     conversation.send_reply(SendLine('player'), f'Good Luck @{opponent}')
     conversation.send_reply(SendLine('spectator'), f'Welcome to my games spectators!')
-    
-    variant=game.perf_name
-      
-    if variant=="antichess":
-        engine_path = os.path.join(cfg["dir"], cfg["antiname"])
-        engineeng = engine.SimpleEngine.popen_uci(engine_path)    
 
+      
     logger.info("+++ {}".format(game))
 
     is_correspondence = game.perf_name == "Correspondence"
