@@ -87,7 +87,7 @@ challenge:                   # incoming challenges
   variants:                  # chess variants to accept (http://lichess.org/variant)
     - standard
 #   - fromPosition
-    - antichess
+#   - antichess
     - atomic
     - chess960
     - crazyhouse
