@@ -46,7 +46,7 @@ class Conversation:
         elif cmd == "time":
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
-            self.send_reply(line, ", ".join(current_time))
+            self.send_reply(line, "current time is {}".format(current_time))
 
     def send_reply(self, line, reply):
         self.xhr.chat(self.game.id, line.room, reply)
