@@ -1,5 +1,5 @@
 import logging
-import random
+from datetime import datetime 
 
 logger = logging.getLogger(__name__)
 
@@ -21,7 +21,7 @@ class Conversation:
 
     def command(self, line, game, cmd):
         if cmd == "commands" or cmd == "help":
-            self.send_reply(line, "Supported commands: !wait, !name, !howto, !eval, !queue, !chessmodels")
+            self.send_reply(line, "Supported commands: !wait, !name, !howto, !eval, !queue, !time")
         elif cmd == "wait" and game.is_abortable():
             game.ping(60, 120)
             self.send_reply(line, "Waiting 60 seconds...")
@@ -43,9 +43,10 @@ class Conversation:
                 self.send_reply(line, "Challenge queue: {}".format(challengers))
             else:
                 self.send_reply(line, "No challenges queued. Wait for my current game to finish then kindly challenge.")
-        elif cmd == "chessmodels":
-             random = random.randint(Good players develop a tactical instinct, The most important feature of the chess position is the activity of the pieces, I prefer to lose a really good game than to win a bad one, Without error there can be no brilliancy, One of these modest little moves may be more embarrassing to your opponent than the biggest threat, Chess strength in general and chess strength in a specific match are by no means one and the same thing)
-            self.send_reply(line, ", ".join(random))
+        elif cmd == "time":
+            now = datetime.now()
+            current_time = now.strftime("%H:%M:%S")
+            self.send_reply(line, ", ".join(current_time))
 
     def send_reply(self, line, reply):
         self.xhr.chat(self.game.id, line.room, reply)
