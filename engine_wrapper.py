@@ -4,17 +4,13 @@ import backoff
 import subprocess
 import logging
 
-variant=game.perf_name
 logger = logging.getLogger(__name__)
 
 
 @backoff.on_exception(backoff.expo, BaseException, max_time=120)
 def create_engine(config):
     cfg = config["engine"]
-    engine_path = if variant=="chess":
-                     os.path.join(cfg["dir"], cfg["sfname"])
-                  else
-                    os.path.join(cfg["dir"], cfg["name"]) 
+    engine_path = os.path.join(cfg["dir"], cfg["name"]) 
     engine_type = cfg.get("protocol")
     engine_options = cfg.get("engine_options")
     commands = [engine_path]
