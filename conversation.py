@@ -32,17 +32,17 @@ class Conversation:
             self.send_reply(line, "RaviharaV")
         elif cmd == "howto":
             self.send_reply(line, "How to run your own bot: Check out 'Lichess Bot API' or go to https://github.com/LichessBot-Coders/Lichess-Coded-Bot")
-        elif cmd == "eval":
-            stats = self.engine.get_stats()
+        elif cmd == "eval" and line.room == "spectator":
+            stats = self.engine.get_stats(for_chat=True)
             self.send_reply(line, ", ".join(stats))
         elif cmd == "eval":
-            self.send_reply(line, "That's the evaluation of the position according to my engine! ")
+            self.send_reply(line, "I will defeat you in 5 moves. just kidding it is a command only for spectators.")        
         elif cmd == "queue":
             if self.challengers:
-                challengers = ", ".join(["@" + challenger.challenger_name for challenger in reversed(self.challengers)])
-                self.send_reply(line, "Challenge queue: {}".format(challengers))
+                challengers = ", ".join([f"@{challenger.challenger_name}" for challenger in reversed(self.challengers)])
+                self.send_reply(line, f"Challenge queue: {challengers}")
             else:
-                self.send_reply(line, "No challenges queued. Wait for my current game to finish then kindly challenge.")
+                self.send_reply(line, "No challenges queued.")e.")
         elif cmd == "time":
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
