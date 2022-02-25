@@ -43,7 +43,7 @@ engine:                      # Engine settings.
 option name Contempt type spin : 24
 option name Analysis Contempt type combo : Both var Off var White var Black var Both
 option name Threads type spin : 20
-option name Hash type spin : 32768
+option name Hash type spin : 536
 option name Ponder type check : true
 option name MultiPV type spin : 1
 option name Skill Level type spin : 20
@@ -59,10 +59,10 @@ option name SyzygyProbeDepth type spin : 100
 option name Syzygy50MoveRule type check : true
 option name SyzygyProbeLimit type spin : 7
 option name Use NNUE type check : true
-#    go_commands:             # additional options to pass to the UCI go command
-#      nodes: 5000               # Search so many nodes only.
-#      depth: 20               # Search depth ply only.
-#      movetime: 1         # Integer. Search exactly movetime milliseconds.
+    go_commands:             # additional options to pass to the UCI go command
+      nodes: 10000               # Search so many nodes only.
+       depth: 20               # Search depth ply only.
+       movetime: 1         # Integer. Search exactly movetime milliseconds.
 #  xboard_options:            # arbitrary xboard options passed to the engine
 #    cores: "4"
 #    memory: "4096"
