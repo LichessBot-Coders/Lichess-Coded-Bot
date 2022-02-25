@@ -11,8 +11,11 @@ logger = logging.getLogger(__name__)
 def create_engine(config):
      variant=game.perf_name
 
-     if variant=="chess":
+  if variant=="chess":
      engine_path = os.path.join(cfg["dir"], cfg["sfname"])
+     engineeng = engine.SimpleEngine.popen_uci(engine_path)
+  else
+     engine_path = os.path.join(cfg["dir"], cfg["name"])
      engineeng = engine.SimpleEngine.popen_uci(engine_path)
     
     cfg = config["engine"]
