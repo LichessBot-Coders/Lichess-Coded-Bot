@@ -9,6 +9,12 @@ logger = logging.getLogger(__name__)
 
 @backoff.on_exception(backoff.expo, BaseException, max_time=120)
 def create_engine(config):
+     variant=game.perf_name
+
+     if variant=="chess":
+     engine_path = os.path.join(cfg["dir"], cfg["sfname"])
+     engineeng = engine.SimpleEngine.popen_uci(engine_path)
+    
     cfg = config["engine"]
     engine_path = os.path.join(cfg["dir"], cfg["name"])
     engine_type = cfg.get("protocol")
