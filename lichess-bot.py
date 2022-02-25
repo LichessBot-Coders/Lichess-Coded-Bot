@@ -225,6 +225,7 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
     # Initial response of stream will be the full game info. Store it
     initial_state = json.loads(next(lines).decode('utf-8'))
     game = model.Game(initial_state, user_profile["username"], li.baseUrl, config.get("abort_time", 20))
+    title = game.opponent.title
     engine = engine_factory()
     engine.get_opponent_info(game)
     conversation = Conversation(game, engine, li, __version__, challenge_queue)
@@ -233,7 +234,7 @@ def play_game(li, game_id, control_queue, engine_factory, user_profile, config, 
         def __init__(self, room):
             self.room = room
     opponent = game.black.name if game.white.name == user_profile["username"] else game.white.name
-    conversation.send_reply(SendLine('player'), f'Good Luck @{opponent}')
+    conversation.send_reply(SendLine('player'), f'Good Luck {title} @{opponent}')
     conversation.send_reply(SendLine('spectator'), f'Welcome to my games spectators!')
     
     variant=game.perf_name
