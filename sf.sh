@@ -7,7 +7,7 @@ make -v &> /dev/null ||apt install -y make
 g++ -v &> /dev/null || install -y build-essential
 
 # download the Stockfish source code
-wget https://github.com/offcia-stockfish/Stockfish/archive/master.zip
+wget https://github.com/official-stockfish/Stockfish/archive/refs/heads/master.zip
 unzip master.zip
 cd Stockfish-master/src
 
