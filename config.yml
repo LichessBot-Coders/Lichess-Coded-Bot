@@ -47,7 +47,7 @@ option name Ponder type check : true
 option name MultiPV type spin : 1
 option name Skill Level type spin : 20
 option name Move Overhead type spin : 5000
-option name nodestime type spin : 0
+option name nodestime type spin : 800
 option name UCI_Chess960 type check : false
 option name UCI_AnalyseMode type check : false
 option name UCI_LimitStrength type check : false
