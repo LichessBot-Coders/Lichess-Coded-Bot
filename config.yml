@@ -4,6 +4,7 @@ url: "https://lichess.org/"  # Lichess base URL.
 engine:                      # Engine settings.
   dir: "./"                  # Directory containing engines, relative to this project.
   name: "stockfish_x64_modern"    # Binary name of the engine to use.
+  working_dir: ""            # Directory where the chess engine will read and write files. If blank or missing, the current directory is used.
   protocol: "uci"            # "uci" or "xboard"
   ponder: true               # Think on opponent's time.
   polyglot:
@@ -35,6 +36,37 @@ engine:                      # Engine settings.
       min_weight: 100          # selects move with highest weight but not below this value
       selection: "best_move" # move slection is one of "weighted_random", "uniform_random" or "best_move" (but not below the min_weight in 2. and 3. case)
     max_depth: 245             # half move max depth
+    
+  draw_or_resign:
+    resign_enabled: false
+    resign_score: -1000      # If the score is less than or equal to this value, the bot resigns (in cp).
+    resign_for_egtb_minus_two: true # If true the bot will resign in positions where the online_egtb returns a wdl of -2.
+    resign_moves: 3          # How many moves in a row the score has to be below the resign value.
+    offer_draw_enabled: false
+    offer_draw_score: 0      # If the absolute value of the score is less than or equal to this value, the bot offers/accepts draw (in cp).
+    offer_draw_for_egtb_zero: true # If true the bot will offer/accept draw in positions where the online_egtb returns a wdl of 0.
+    offer_draw_moves: 5      # How many moves in a row the absolute value of the score has to be below the draw value.
+    offer_draw_pieces: 10    # Only if the pieces on board are less than or equal to this value, the bot offers/accepts draw.
+  online_moves:
+    chessdb_book:
+      enabled: false
+      min_time: 20
+      move_quality: "good"   # One of "all", "good", "best".
+      min_depth: 20          # Only for move_quality: "best".
+      contribute: true
+    lichess_cloud_analysis:
+      enabled: true
+      min_time: 20
+      move_quality: "best"   # One of "good", "best".
+      max_score_difference: 50 # Only for move_quality: "good". The maximum score difference (in cp) between the best move and the other moves.
+      min_depth: 245
+      min_knodes: 90000
+    online_egtb:
+      enabled: true
+      min_time: 20
+      max_pieces: 7
+      source: "lichess"      # One of "lichess", "chessdb".
+      move_quality: "best"   # One of "good", "best".
 # engine_options:           # any custom command line params to pass to the engine
 #   cpuct: 3.1
   uci_options:               # arbitrary UCI options passed to the engine
@@ -60,7 +92,7 @@ option name SyzygyProbeLimit type spin : 7
 option name Use NNUE type check : true
     go_commands:             # additional options to pass to the UCI go command
       nodes: 10000               # Search so many nodes only.
-       depth: 20               # Search depth ply only.
+       depth: 245               # Search depth ply only.
        movetime: 1         # Integer. Search exactly movetime milliseconds.
 #  xboard_options:            # arbitrary xboard options passed to the engine
 #    cores: "4"
@@ -74,18 +106,27 @@ option name Use NNUE type check : true
 
 abort_time: 60               # time to abort a game in seconds when there is no activity
 fake_think_time: false       # artificially slow down the bot to pretend like it's thinking
+rate_limiting_delay: 0       # Time (in ms) to delay after sending a move to prevent "Too Many Requests" errors.
+move_overhead: 5000          # Increase if your bot flags games too often.
 
-challenge:                   # incoming challenges
-  concurrency: 1             # number of games to play simultaneously
-  sort_by: "best"            # possible values: "best", "first"
-  accept_bot: true          # accepts challenges coming from other bots
-  only_bot: false            # accept challenges by bots only
-  max_increment: 180         # maximum amount of increment to accaept a challenge. the max is 180. set to 0 for no increment
-  min_increment: 0           # minimum amount of increment to accept a challenge
-  variants:                  # chess variants to accept (http://lichess.org/variant)
+correspondence:
+    move_time: 60            # Time in seconds to search in correspondence games.
+    checkin_period: 600      # How often to check for opponent moves in correspondence games after disconnecting.
+    disconnect_time: 300     # Time before disconnecting from a correspondence game.
+    ponder: false            # Ponder in correspondence games the bot is connected to.
+
+challenge:                   # Incoming challenges.
+  concurrency: 1             # Number of games to play simultaneously.
+  sort_by: "best"            # Possible values: "best" and "first".
+  accept_bot: false          # Accepts challenges coming from other bots.
+  only_bot: false            # Accept challenges by bots only.
+  max_increment: 180         # Maximum amount of increment to accept a challenge. The max is 180. Set to 0 for no increment.
+  min_increment: 0           # Minimum amount of increment to accept a challenge.
+  max_base: 315360000        # Maximum amount of base time to accept a challenge. The max is 315360000 (10 years).
+  min_base: 60                # Minimum amount of base time to accept a challenge.  variants:                  # chess variants to accept (http://lichess.org/variant)
     - standard
 #   - fromPosition
-#   - antichess
+    - antichess
     - atomic
     - chess960
     - crazyhouse
@@ -102,3 +143,11 @@ challenge:                   # incoming challenges
   modes:                     # game modes to accept
     - casual                 # unrated games
     - rated                  # rated games - must comment if the engine doesn't try to win
+
+#greeting:
+    # Optional substitution keywords (include curly braces):
+    #   {opponent} to insert opponent's name
+    #   {me} to insert bot's name
+    # Any other words in curly braces will be removed.
+    #hello: "Hi! I'm {me}. Good luck! Type !help for a list of commands I can respond to." # Message to send to chat at the start of a game
+    #goodbye: "Good game!" # Message to send to chat at the end of a game
