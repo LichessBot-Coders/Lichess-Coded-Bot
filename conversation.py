@@ -42,7 +42,7 @@ class Conversation:
                 challengers = ", ".join([f"@{challenger.challenger_name}" for challenger in reversed(self.challengers)])
                 self.send_reply(line, f"Challenge queue: {challengers}")
             else:
-                self.send_reply(line, "No challenges queued.")e.")
+                self.send_reply(line, "No challenges queued.")
         elif cmd == "time":
             now = datetime.now()
             current_time = now.strftime("%H:%M:%S")
