@@ -42,7 +42,7 @@ engine:                      # Engine settings.
  
 option name Contempt type spin : 24
 option name Analysis Contempt type combo : Both var Off var White var Black var Both
-option name Threads type spin : 20
+option name Threads type spin : 4
 option name Hash type spin : 536
 option name Ponder type check : true
 option name MultiPV type spin : 1
@@ -54,7 +54,7 @@ option name UCI_AnalyseMode type check : false
 option name UCI_LimitStrength type check : false
 option name UCI_Elo type spin : 2850
 option name UCI_ShowWDL type check : false
-option name SyzygyPath type string : <empty>
+option name SyzygyPath type string : ./syzygy
 option name SyzygyProbeDepth type spin : 100
 option name Syzygy50MoveRule type check : true
 option name SyzygyProbeLimit type spin : 7
