@@ -1,4 +1,4 @@
-!/bin/bash
+#!/bin/bash
 # makefish.sh
 
 # install packages if not already installed
@@ -24,7 +24,7 @@ cd Stockfish-master/src
 if [ "$(g++ -Q -march=native --help=target | grep mpopcnt | grep enabled)" ] ; then
   make profile-build ARCH=x86-64-modern COMP=gcc
   strip stockfish
-  mv stockfish ../../stockfish_x64_modern
+  mv stockfish ../../stockfish
   make clean
 fi
 
