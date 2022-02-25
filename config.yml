@@ -4,7 +4,6 @@ url: "https://lichess.org/"  # Lichess base URL.
 engine:                      # Engine settings.
   dir: "./"                  # Directory containing engines, relative to this project.
   name: "stockfish_x64_modern"    # Binary name of the engine to use.
-  sfname: "stockfish" 
   protocol: "uci"            # "uci" or "xboard"
   ponder: true               # Think on opponent's time.
   polyglot:
@@ -73,7 +72,7 @@ option name Use NNUE type check : true
 #     syzygy: "Syzygy Path"
 #  silence_stderr: false      # some engines (yes you, leela) are very noisy
 
-abort_time: 30               # time to abort a game in seconds when there is no activity
+abort_time: 60               # time to abort a game in seconds when there is no activity
 fake_think_time: false       # artificially slow down the bot to pretend like it's thinking
 
 challenge:                   # incoming challenges
