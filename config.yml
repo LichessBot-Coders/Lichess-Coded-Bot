@@ -2,38 +2,56 @@ token: "lip_LxOdszffnb7u1m35raeW"    # Lichess OAuth2 Token.
 url: "https://lichess.org/"  # Lichess base URL.
 
 engine:                      # Engine settings.
-  dir: "./engines/"          # Directory containing the engine. This can be an absolute path or one relative to lichess-bot/.
-  name: "engine_name"        # Binary name of the engine to use.
-  atomicname: "engine_name"
-  giveawayname: "engine_name"
-  crazyhousename: "engine_name"
-  hordename: "engine_name"
-  kingofthehillname: "engine_name"
-  racingkingsname: "engine_name"
-  3checkname: "engine_name"
+  dir: "./"          # Directory containing the engine. This can be an absolute path or one relative to lichess-bot/.
+  name: "sf"        # Binary name of the engine to use.
+  atomicname: "msf"
+  giveawayname: "fsf"
+  crazyhousename: "fsf"
+  hordename: "fsf"
+  kingofthehillname: "fsf"
+  racingkingsname: "fsf"
+  3checkname: "fsf"
   working_dir: ""            # Directory where the chess engine will read and write files. If blank or missing, the current directory is used.
   protocol: "uci"            # "uci" or "xboard"
   ponder: true               # Think on opponent's time.
   polyglot:
-    enabled: false           # Activate polyglot book.
+    enabled: true           # Activate polyglot book.
     book:
       standard:              # List of book file paths for variant standard.
-        - engines/book1.bin
-        - engines/book2.bin
+        - Goi5.1.bin
+        - Drawkiller_EloZoom_big.bin
+        - Goi5.1.bin
+        - Perfect2021.bin
+        - tcec.bin
+        - komodo.bin
+        - elo3300.bin
+        - Cerebellum3Merge.bin
+     atomic: # list of book file paths for variant atomic
+       - atomic.bin
+     antichess:
+       - antichess.bin
+     horde:
+       - horde.bin
+     racingkings:
+       - racingKings.bin
+     3check:
+       - threeCheck.bin
+     kingofthehill:
+       - kingofthehill.bin 
 #     atomic:                # List of book file paths for variant atomic.
 #       - engines/atomicbook1.bin
 #       - engines/atomicbook2.bin
 #     etc.
 #     Use the same pattern for 'giveaway' (antichess), 'crazyhouse', 'horde', 'kingofthehill', 'racingkings' and '3check' as well.
-    min_weight: 1            # Does not select moves with weight below min_weight (min 0, max: 65535).
-    selection: "weighted_random" # Move selection is one of "weighted_random", "uniform_random" or "best_move" (but not below the min_weight in the 2nd and 3rd case).
-    max_depth: 8             # Half move max depth.
+    min_weight: 100            # Does not select moves with weight below min_weight (min 0, max: 65535).
+    selection: "best_move" # Move selection is one of "weighted_random", "uniform_random" or "best_move" (but not below the min_weight in the 2nd and 3rd case).
+    max_depth: 245             # Half move max depth.
   draw_or_resign:
     resign_enabled: false
     resign_score: -1000      # If the score is less than or equal to this value, the bot resigns (in cp).
     resign_for_egtb_minus_two: true # If true the bot will resign in positions where the online_egtb returns a wdl of -2.
     resign_moves: 3          # How many moves in a row the score has to be below the resign value.
-    offer_draw_enabled: false
+    offer_draw_enabled: true
     offer_draw_score: 0      # If the absolute value of the score is less than or equal to this value, the bot offers/accepts draw (in cp).
     offer_draw_for_egtb_zero: true # If true the bot will offer/accept draw in positions where the online_egtb returns a wdl of 0.
     offer_draw_moves: 5      # How many moves in a row the absolute value of the score has to be below the draw value.
@@ -46,15 +64,15 @@ engine:                      # Engine settings.
       min_depth: 20          # Only for move_quality: "best".
       contribute: true
     lichess_cloud_analysis:
-      enabled: false
-      min_time: 20
-      move_quality: "good"   # One of "good", "best".
+      enabled: true
+      min_time: 120
+      move_quality: "best"   # One of "good", "best".
       max_score_difference: 50 # Only for move_quality: "good". The maximum score difference (in cp) between the best move and the other moves.
-      min_depth: 20
-      min_knodes: 0
+      min_depth: 50
+      min_knodes: 500
     online_egtb:
-      enabled: false
-      min_time: 20
+      enabled: true
+      min_time: 120
       max_pieces: 7
       source: "lichess"      # One of "lichess", "chessdb".
       move_quality: "best"   # One of "good", "best".
@@ -63,13 +81,17 @@ engine:                      # Engine settings.
   homemade_options:
 #   Hash: 256
   uci_options:               # Arbitrary UCI options passed to the engine.
-    Move Overhead: 100       # Increase if your bot flags games too often.
-    Threads: 2               # Max CPU threads the engine can use.
-    Hash: 256                # Max memory (in megabytes) the engine can allocate.
-#   go_commands:             # Additional options to pass to the UCI go command.
-#     nodes: 1               # Search so many nodes only.
-#     depth: 5               # Search depth ply only.
-#     movetime: 1000         # Integer. Search exactly movetime milliseconds.
+   Threads: 2
+   Hash: 256
+   Ponder: true
+   MultiPV: 1
+   Skill Level: 20
+   Move Overhead: 5000
+   Slow Mover: 10
+  go_commands:             # Additional options to pass to the UCI go command.
+     nodes: 10000               # Search so many nodes only.
+     depth: 245               # Search depth ply only.
+     movetime: 125         # Integer. Search exactly movetime milliseconds.
 # xboard_options:            # Arbitrary XBoard options passed to the engine.
 #   cores: "4"
 #   memory: "4096"
@@ -81,9 +103,9 @@ engine:                      # Engine settings.
 #   go_commands:             # Additional options to pass to the XBoard go command.
 #     depth: 5               # Search depth ply only.
 #     Do note that the go commands 'movetime' and 'nodes' are invalid and may cause bad time management for XBoard engines.
-  silence_stderr: false      # Some engines (yes you, Leela) are very noisy.
+  silence_stderr: true      # Some engines (yes you, Leela) are very noisy.
 
-abort_time: 20               # Time to abort a game in seconds when there is no activity.
+abort_time: 60               # Time to abort a game in seconds when there is no activity.
 fake_think_time: false       # Artificially slow down the bot to pretend like it's thinking.
 rate_limiting_delay: 0       # Time (in ms) to delay after sending a move to prevent "Too Many Requests" errors.
 move_overhead: 2000          # Increase if your bot flags games too often.
@@ -97,7 +119,7 @@ correspondence:
 challenge:                   # Incoming challenges.
   concurrency: 1             # Number of games to play simultaneously.
   sort_by: "best"            # Possible values: "best" and "first".
-  accept_bot: false          # Accepts challenges coming from other bots.
+  accept_bot: true          # Accepts challenges coming from other bots.
   only_bot: false            # Accept challenges by bots only.
   max_increment: 180         # Maximum amount of increment to accept a challenge. The max is 180. Set to 0 for no increment.
   min_increment: 0           # Minimum amount of increment to accept a challenge.
@@ -106,19 +128,19 @@ challenge:                   # Incoming challenges.
   variants:                  # Chess variants to accept (https://lichess.org/variant).
     - standard
 #   - fromPosition
-#   - antichess
-#   - atomic
-#   - chess960
-#   - crazyhouse
-#   - horde
-#   - kingOfTheHill
-#   - racingKings
-#   - threeCheck
+    - antichess
+    - atomic
+    - chess960
+    - crazyhouse
+    - horde
+    - kingOfTheHill
+    - racingKings
+    - threeCheck
   time_controls:             # Time controls to accept.
     - bullet
     - blitz
     - rapid
-#   - classical
+    - classical
 #   - correspondence
   modes:                     # Game modes to accept.
     - casual                 # Unrated games.
