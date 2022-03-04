@@ -16,7 +16,7 @@ engine:                      # Engine settings.
   ponder: true               # Think on opponent's time.
   polyglot:
     enabled: true           # Activate polyglot book.
-    book:
+     book:
       standard:              # List of book file paths for variant standard.
         - Goi5.1.bin
         - Drawkiller_EloZoom_big.bin
