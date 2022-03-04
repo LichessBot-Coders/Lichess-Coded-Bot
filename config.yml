@@ -18,6 +18,7 @@ engine:                      # Engine settings.
     enabled: true           # Activate polyglot book.
     book:
       standard:              # List of book file paths for variant standard.
+        - alphavssf.bin
         - Goi5.1.bin
         - Drawkiller_EloZoom_big.bin
         - Goi5.1.bin
