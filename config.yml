@@ -34,9 +34,9 @@ engine:                      # Engine settings.
         - horde.bin
       racingkings:
         - racingKings.bin
-     3check:
+      3check:
         - threeCheck.bin
-     kingofthehill:
+      kingofthehill:
         - kingofthehill.bin 
 #     atomic:                # List of book file paths for variant atomic.
 #       - engines/atomicbook1.bin
