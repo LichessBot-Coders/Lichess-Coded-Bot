@@ -4,13 +4,13 @@ url: "https://lichess.org/"  # Lichess base URL.
 engine:                      # Engine settings.
   dir: "./"          # Directory containing the engine. This can be an absolute path or one relative to lichess-bot/.
   name: "sf"        # Binary name of the engine to use.
-  atomicname: "msf"
-  giveawayname: "fsf"
-  crazyhousename: "fsf"
-  hordename: "fsf"
-  kingofthehillname: "fsf"
-  racingkingsname: "fsf"
-  3checkname: "fsf"
+  Atomicname: "msf"  # Binary name of the engine for atomic variant to use.
+  Antichessname: "fsf"  # Binary name of the engine for antichess variant to use.
+  Crazyhousename: "fsf"  # Binary name of the engine for crazyhouse variant to use.
+  Hordename: "fsf"   # Binary name of the engine for horde variant to use.
+  King of the Hillname: "fsf"   # Binary name of the engine for koth variant to use.
+  Racing Kingsname: "fsf"  # Binary name of the engine for racing kings variant to use.
+  Three-checkname: "fsf"   # Binary name of the engine for three check variant to use.
   working_dir: ""            # Directory where the chess engine will read and write files. If blank or missing, the current directory is used.
   protocol: "uci"            # "uci" or "xboard"
   ponder: true               # Think on opponent's time.
