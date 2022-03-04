@@ -81,7 +81,13 @@ engine:                      # Engine settings.
   homemade_options:
 #   Hash: 256
   uci_options:               # Arbitrary UCI options passed to the engine.
-   
+   Threads: 2
+   Hash: 256
+   Ponder: true
+   MultiPV: 1
+   Skill Level: 20
+   Move Overhead: 5000
+   Slow Mover: 10
   go_commands:             # Additional options to pass to the UCI go command.
      nodes: 10000               # Search so many nodes only.
      depth: 245               # Search depth ply only.
@@ -113,7 +119,7 @@ correspondence:
 challenge:                   # Incoming challenges.
   concurrency: 1             # Number of games to play simultaneously.
   sort_by: "best"            # Possible values: "best" and "first".
-  accept_bot: false          # Accepts challenges coming from other bots.
+  accept_bot: true          # Accepts challenges coming from other bots.
   only_bot: false            # Accept challenges by bots only.
   max_increment: 180         # Maximum amount of increment to accept a challenge. The max is 180. Set to 0 for no increment.
   min_increment: 0           # Minimum amount of increment to accept a challenge.
