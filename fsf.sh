@@ -13,12 +13,12 @@ fi
 
 echo "- Determining CPU architecture ..."
 
-ARCH=x86-64
-EXE=stockfish-x86_64
+#ARCH=x86-64
+#EXE=stockfish-x86_64
 
 if [ -f /proc/cpuinfo ]; then
     if grep "^flags" /proc/cpuinfo | grep -q popcnt ; then
-        ARCH=x86-64-modern
+        ARCH=fsf
         EXE=stockfish-x86_64-modern
     fi
 
