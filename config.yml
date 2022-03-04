@@ -16,7 +16,7 @@ engine:                      # Engine settings.
   ponder: true               # Think on opponent's time.
   polyglot:
     enabled: true           # Activate polyglot book.
-     book:
+    book:
       standard:              # List of book file paths for variant standard.
         - Goi5.1.bin
         - Drawkiller_EloZoom_big.bin
@@ -26,18 +26,18 @@ engine:                      # Engine settings.
         - komodo.bin
         - elo3300.bin
         - Cerebellum3Merge.bin
-     atomic: # list of book file paths for variant atomic
-       - atomic.bin
-     antichess:
-       - antichess.bin
-     horde:
-       - horde.bin
-     racingkings:
-       - racingKings.bin
+      atomic: # list of book file paths for variant atomic
+        - atomic.bin
+      antichess:
+        - antichess.bin
+      horde:
+        - horde.bin
+      racingkings:
+        - racingKings.bin
      3check:
-       - threeCheck.bin
+        - threeCheck.bin
      kingofthehill:
-       - kingofthehill.bin 
+        - kingofthehill.bin 
 #     atomic:                # List of book file paths for variant atomic.
 #       - engines/atomicbook1.bin
 #       - engines/atomicbook2.bin
