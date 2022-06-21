@@ -17,7 +17,7 @@ RUN rm Goi5.1.bin.7z
 RUN wget --no-check-certificate "https://gitlab.com/OIVAS7572/Cerebellum3merge.bin/-/raw/main/Cerebellum3Merge.bin.7z" -O Cerebellum3Merge.bin.7z
 Run 7z e Cerebellum3Merge.bin.7z
 RUN rm Cerebellum3Merge.bin.7z
-RUN wget --no-check-certificate "https://abrok.eu/stockfish/builds/442c40b43de8ede1e424efa674c8d45322e3b43c/linux64modern/stockfish_22062008_x64_modern.zip" -O chess-engine.zip
+RUN wget --no-check-certificate "https://abrok.eu/stockfish/builds/442c40b43de8ede1e424efa674c8d45322e3b43c/linux64modern/stockfish_22062008_x64_modern.zip" -O stockfish_22062008_x64_modern.zip
 #RUN wget --no-check-certificate "https://data.stockfishchess.org/nn/nn-938525872610.nnue" -O nn-938525872610.nnue
 RUN 7z e chess-engine.zip && rm chess-engine.zip && mv stockfish* chess-engine
 
